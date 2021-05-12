@@ -71,54 +71,14 @@ describe('AuthenticationService', () => {
     const jwtSignIn = mockResolveCore(jwtService, 'sign', '12312312')
 
     expect(
-      service.createToken({ id_token: '12312312', email: 'will@willbank.com.br' }).then(data => data.accessToken),
+      service.createToken({ email: 'will@willbank.com.br' }).then(data => data.accessToken),
     ).resolves.toBe('12312312')
 
     expect(
-      service.createToken({ id_token: '12312312', email: 'will@willbank.com.br' }).then(data => data.refreshToken),
+      service.createToken({ email: 'will@willbank.com.br' }).then(data => data.refreshToken),
     ).resolves.toBe('12312312')
 
     expect(jwtSignIn).toHaveBeenCalled()
-  })
-
-  it('should test googleLogin', async () => {
-    const callbackFunction = mockResolveCore(service, 'createToken', tokens)
-    const verifyTokenCallbackFunction = mockResolveCore(service, 'verifyTokenGoogle', 'asd0sa-d0-s')
-    const request = {
-      user: {
-        token: {
-          id_token: 'asd0sa-d0-s',
-        },
-        profile: {
-          email: 'will@willbank.com.br',
-        },
-      },
-    }
-    const result = await service.googleLogin(request)
-
-    expect(callbackFunction).toHaveBeenCalled()
-    expect(verifyTokenCallbackFunction).toHaveBeenCalled()
-    expect(result).toEqual(request.user)
-  })
-
-  it('should return failed googleLogin', async () => {
-    mockRejectCore(service, 'createToken', {
-      response: 404,
-    })
-    mockRejectCore(service, 'verifyTokenGoogle', {
-      response: 404,
-    })
-    const request = {
-      user: {
-        token: {
-          id_token: 'asd0sa-d0-s',
-        },
-        profile: {
-          email: 'will@willbank.com.br',
-        },
-      },
-    }
-    await expect(service.googleLogin(request.user)).rejects.toThrowError(messages.authenticate.notHaveAuthorization)
   })
 
   it('should test jwtStrategy validate return', async () => {

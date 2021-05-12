@@ -4,10 +4,6 @@ import { ApiProperty } from '@nestjs/swagger'
 export class TokenDto {
   @ApiProperty()
   @IsString({ always: true })
-  id_token: string
-
-  @ApiProperty()
-  @IsString({ always: true })
   email: string
 }
 

@@ -24,11 +24,7 @@ export class MockAuthenticationDto {
 export class AuthenticationDto {
   @ApiProperty()
   @IsString({ always: true })
-  username: string
-
-  @ApiProperty()
-  @IsString({ always: true })
-  password: string
+  email: string
 }
 
 export class GoogleAuth {

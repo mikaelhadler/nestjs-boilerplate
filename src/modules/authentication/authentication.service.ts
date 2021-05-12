@@ -12,8 +12,8 @@ export class AuthenticationService {
 
   async refreshToken(request: RefreshTokenDto): Promise<CreateTokenDto> {
     try {
-      const { email, id_token } = await this.refreshTokenIsValid(request.refreshToken)
-      return this.createToken({ email: email, id_token: id_token })
+      const { email } = await this.refreshTokenIsValid(request.refreshToken)
+      return this.createToken({ email: email })
     } catch (error) {
       throw new UnauthorizedException(messages.authenticate.invalidToken)
     }
@@ -38,8 +38,8 @@ export class AuthenticationService {
 
   async googleLogin(req): Promise<any> {
     try {
-      await this.verifyTokenGoogle(req.user.token.id_token)
-      req.user.token = await this.createToken({ id_token: req.user.token.id_token, email: req.user.profile.email })
+      // await this.verifyTokenGoogle(req.user.token.id_token)
+      req.user.token = await this.createToken({ email: req.email })
       return req.user
     } catch (error) {
       throw new UnauthorizedException(messages.authenticate.notHaveAuthorization)
