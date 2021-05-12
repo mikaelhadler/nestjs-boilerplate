@@ -1,17 +1,10 @@
-FROM alpine:3.7
+FROM node:14-alpine
 
-WORKDIR /usr/app
+WORKDIR /app
 
-COPY package.json /usr/app
-COPY yarn.lock /usr/app
-COPY src/ /usr/app
+COPY package.json yarn.lock ./
+RUN yarn install
 
-RUN yarn
-
-COPY . /usr/app
+COPY . /app
 
 RUN yarn build
-
-EXPOSE 3000
-
-CMD ["yarn", "start"]
