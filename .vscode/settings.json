@@ -1,0 +1,23 @@
+{
+  "eslint.run": "onSave",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "files.associations": {},
+  "explorer.confirmDelete": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "sonarlint.connectedMode.project": {
+    "serverId": "will-bank",
+    "projectKey": "will-bank_backoffice-api"
+  },
+  "sonarlint.trace.server": "verbose",
+  "liveServer.settings.port": 5503
+}

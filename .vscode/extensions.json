@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "msjsdiag.debugger-for-chrome",
+    "mgmcdermott.vscode-language-babel",
+    "dbaeumer.vscode-eslint",
+    "Orta.vscode-jest",
+    "firsttris.vscode-jest-runner",
+    "andys8.jest-snippets",
+    "esbenp.prettier-vscode",
+    "SonarSource.sonarlint-vscode",
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ]
+}
