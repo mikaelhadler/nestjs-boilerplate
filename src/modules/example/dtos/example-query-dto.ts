@@ -16,10 +16,5 @@ export class ExampleQueryDto {
   @ApiProperty()
   @IsOptional()
   @IsString({ always: true })
-  direction?: SORT
-
-  @ApiProperty()
-  @IsOptional()
-  @IsString({ always: true })
   order?: ORDER
 }
